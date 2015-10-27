@@ -305,7 +305,7 @@ angular.module('colorpicker.module', [])
                   event.stopPropagation();
                 })
                 .on('keyup', function(event) {
-                  var newColor = this.value;
+                  var newColor = this.value.trim();
                   elem.val(newColor);
                   if(ngModel) {
                     $scope.$apply(ngModel.$setViewValue(newColor));
@@ -540,6 +540,9 @@ angular.module('colorpicker.module', [])
           var hideColorpickerTemplate = function() {
             if (colorpickerTemplate.hasClass('colorpicker-visible')) {
               colorpickerTemplate.removeClass('colorpicker-visible');
+			  if (withInput) {
+				pickerColorInput.blur();
+			  }
               emitEvent('colorpicker-closed');
               // unregister the global mousedown event
               $document.off('mousedown', documentMousedownHandler);
