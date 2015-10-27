@@ -37,7 +37,7 @@ angular.module('colorpicker.module', [])
         // a set of RE's that can match strings and generate color tuples. https://github.com/jquery/jquery-color/
         stringParsers: [
           {
-            re: /rgba?\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*(?:,\s*(\d+(?:\.\d+)?)\s*)?\)/,
+            re: /rgba?\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*(?:,\s*([01]?(?:\.\d+)?)\s*)?\)/,
             parse: function (execResult) {
               return [
                 execResult[1],
@@ -48,7 +48,7 @@ angular.module('colorpicker.module', [])
             }
           },
           {
-            re: /rgba?\(\s*(\d+(?:\.\d+)?)\%\s*,\s*(\d+(?:\.\d+)?)\%\s*,\s*(\d+(?:\.\d+)?)\%\s*(?:,\s*(\d+(?:\.\d+)?)\s*)?\)/,
+            re: /rgba?\(\s*(\d+(?:\.\d+)?)\%\s*,\s*(\d+(?:\.\d+)?)\%\s*,\s*(\d+(?:\.\d+)?)\%\s*(?:,\s*([01]?(?:\.\d+)?)\s*)?\)/,
             parse: function (execResult) {
               return [
                 2.55 * execResult[1],
